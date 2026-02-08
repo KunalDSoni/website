@@ -272,9 +272,11 @@ function initSkillBars() {
 // ============================================
 function initCarousel() {
     const track = document.getElementById('carouselTrack');
+    if (!track) return;
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const dotsContainer = document.getElementById('carouselDots');
+    if (!prevBtn || !nextBtn || !dotsContainer) return;
     const cards = track.querySelectorAll('.testimonial-card');
     let currentIndex = 0;
     let autoPlayTimer;
@@ -524,9 +526,277 @@ function initTiltEffect() {
 }
 
 // ============================================
+// Page Loader
+// ============================================
+function initPageLoader() {
+    const loader = document.getElementById('pageLoader');
+    if (!loader) return;
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loader.classList.add('loaded');
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 600);
+        }, 1200);
+    });
+}
+
+// ============================================
+// Scroll Progress Bar
+// ============================================
+function initScrollProgress() {
+    const progressBar = document.getElementById('scrollProgress');
+    if (!progressBar) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+// ============================================
+// Typing Animation
+// ============================================
+function initTypingAnimation() {
+    const typingElement = document.getElementById('typingText');
+    if (!typingElement) return;
+
+    const words = ['payments', 'wallets', 'neobanks', 'super apps', 'fintech'];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function type() {
+        const currentWord = words[wordIndex];
+
+        if (isDeleting) {
+            typingElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50;
+        } else {
+            typingElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 120;
+        }
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            typingSpeed = 2000; // Pause at end
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            typingSpeed = 400; // Pause before next word
+        }
+
+        setTimeout(type, typingSpeed);
+    }
+
+    setTimeout(type, 1500); // Initial delay
+}
+
+// ============================================
+// Magnetic Buttons
+// ============================================
+function initMagneticButtons() {
+    const magnetics = document.querySelectorAll('.magnetic');
+
+    magnetics.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+}
+
+// ============================================
+// Parallax Blobs
+// ============================================
+function initParallaxBlobs() {
+    // Add decorative blobs to sections
+    const sections = [
+        { selector: '.about', color: '#6366f1' },
+        { selector: '.experience', color: '#ec4899' },
+        { selector: '.skills', color: '#14b8a6' },
+        { selector: '.projects', color: '#f59e0b' },
+    ];
+
+    sections.forEach(({ selector, color }) => {
+        const section = document.querySelector(selector);
+        if (!section) return;
+
+        const blob = document.createElement('div');
+        blob.classList.add('parallax-bg');
+        blob.style.background = color;
+        blob.style.width = (300 + Math.random() * 200) + 'px';
+        blob.style.height = blob.style.width;
+        blob.style.top = (Math.random() * 60 + 10) + '%';
+        blob.style[Math.random() > 0.5 ? 'left' : 'right'] = -(Math.random() * 100 + 50) + 'px';
+        section.style.position = 'relative';
+        section.appendChild(blob);
+    });
+
+    // Parallax movement on scroll
+    window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset;
+        document.querySelectorAll('.parallax-bg').forEach(blob => {
+            const speed = 0.05;
+            const yPos = scrollY * speed;
+            blob.style.transform = `translateY(${yPos}px)`;
+        });
+    });
+}
+
+// ============================================
+// Animated Tool Tag Shuffle on Hover
+// ============================================
+function initToolTagAnimation() {
+    const tags = document.querySelectorAll('.tool-tag');
+    tags.forEach(tag => {
+        tag.addEventListener('mouseenter', () => {
+            tag.style.animation = 'none';
+            tag.offsetHeight; // reflow
+            tag.style.animation = 'tagPop 0.4s ease';
+        });
+    });
+
+    // Add the keyframes dynamically
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes tagPop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1) translateY(-4px); }
+            100% { transform: scale(1) translateY(-2px); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// ============================================
+// Floating Fintech Icons
+// ============================================
+function initFintechFloaters() {
+    const container = document.getElementById('fintechFloaters');
+    if (!container) return;
+
+    // Currency symbols
+    const currencies = ['$', '₹', 'د.إ', '€', '£', '¥', '₿'];
+
+    // SVG icons for fintech items
+    const svgIcons = {
+        card: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+        </svg>`,
+        pos: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+            <line x1="8" y1="6" x2="16" y2="6"></line>
+            <rect x="8" y="10" width="3" height="3" rx="0.5"></rect>
+            <rect x="13" y="10" width="3" height="3" rx="0.5"></rect>
+            <rect x="8" y="15" width="3" height="3" rx="0.5"></rect>
+            <rect x="13" y="15" width="3" height="3" rx="0.5"></rect>
+        </svg>`,
+        transaction: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <polyline points="17 1 21 5 17 9"></polyline>
+            <line x1="3" y1="5" x2="21" y2="5"></line>
+            <polyline points="7 23 3 19 7 15"></polyline>
+            <line x1="21" y1="19" x2="3" y2="19"></line>
+        </svg>`,
+        wallet: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
+            <path d="M4 6v12a2 2 0 0 0 2 2h14v-4"></path>
+            <path d="M18 12a2 2 0 0 0 0 4h4v-4h-4z"></path>
+        </svg>`,
+        chart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>`,
+        shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>`,
+        bank: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <line x1="2" y1="17" x2="22" y2="17"></line>
+            <line x1="2" y1="12" x2="2" y2="17"></line>
+            <line x1="22" y1="12" x2="22" y2="17"></line>
+            <line x1="6" y1="9.5" x2="6" y2="17"></line>
+            <line x1="10" y1="8" x2="10" y2="17"></line>
+            <line x1="14" y1="8" x2="14" y2="17"></line>
+            <line x1="18" y1="9.5" x2="18" y2="17"></line>
+        </svg>`,
+        contactless: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <path d="M8.5 16.5a5 5 0 0 1 0-9"></path>
+            <path d="M12 19a8 8 0 0 0 0-14"></path>
+            <path d="M15.5 21.5a11 11 0 0 0 0-19"></path>
+        </svg>`
+    };
+
+    const svgKeys = Object.keys(svgIcons);
+    const sizes = ['size-sm', 'size-md', 'size-lg'];
+    const drifts = ['', 'drift-left', 'drift-right', 'pulse'];
+
+    function createIcon() {
+        const icon = document.createElement('div');
+        icon.classList.add('fintech-icon');
+
+        // Random size
+        const size = sizes[Math.floor(Math.random() * sizes.length)];
+        icon.classList.add(size);
+
+        // Random drift
+        const drift = drifts[Math.floor(Math.random() * drifts.length)];
+        if (drift) icon.classList.add(drift);
+
+        // 50% chance currency vs SVG icon
+        if (Math.random() > 0.45) {
+            icon.classList.add('currency');
+            icon.textContent = currencies[Math.floor(Math.random() * currencies.length)];
+        } else {
+            const key = svgKeys[Math.floor(Math.random() * svgKeys.length)];
+            icon.innerHTML = svgIcons[key];
+        }
+
+        // Random position and timing
+        icon.style.left = (Math.random() * 90 + 5) + '%';
+        const duration = Math.random() * 15 + 12; // 12-27s
+        icon.style.animationDuration = duration + 's';
+        icon.style.animationDelay = (Math.random() * 10) + 's';
+
+        container.appendChild(icon);
+
+        // Remove after animation completes and create a new one
+        setTimeout(() => {
+            icon.remove();
+            createIcon();
+        }, (duration + 10) * 1000);
+    }
+
+    // Spawn initial batch (fewer on mobile)
+    const isMobile = window.innerWidth < 768;
+    const count = isMobile ? 6 : 14;
+    for (let i = 0; i < count; i++) {
+        setTimeout(() => createIcon(), i * 800);
+    }
+}
+
+// ============================================
 // Initialize Everything
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
+    // Init page loader first
+    initPageLoader();
+
     // Init particle canvas
     const heroCanvas = document.getElementById('heroCanvas');
     if (heroCanvas) new ParticleCanvas(heroCanvas);
@@ -542,4 +812,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initSmoothScroll();
     initTiltEffect();
+
+    // New features
+    initScrollProgress();
+    initTypingAnimation();
+    initMagneticButtons();
+    initParallaxBlobs();
+    initToolTagAnimation();
+    initFintechFloaters();
 });

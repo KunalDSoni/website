@@ -1858,3 +1858,584 @@ body:hover .cursor-glow {
 .hero-content > *:nth-child(3) { animation-delay: 0.6s; }
 .hero-content > *:nth-child(4) { animation-delay: 0.8s; }
 .hero-content > *:nth-child(5) { animation-delay: 1.0s; }
+
+/* ============================================
+   Page Loader
+   ============================================ */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.page-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-logo {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    animation: pulse-logo 1.5s ease-in-out infinite;
+}
+
+.loader-logo .logo-bracket {
+    color: var(--accent-primary);
+}
+
+@keyframes pulse-logo {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.loader-bar {
+    width: 200px;
+    height: 3px;
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loader-progress {
+    width: 0;
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 3px;
+    animation: loader-fill 1.5s ease forwards;
+}
+
+@keyframes loader-fill {
+    0% { width: 0; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+/* ============================================
+   Scroll Progress Bar
+   ============================================ */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    z-index: 1001;
+    width: 0;
+    transition: width 0.1s linear;
+}
+
+/* ============================================
+   Typing Animation
+   ============================================ */
+.typing-wrapper {
+    display: inline;
+}
+
+.typing-text {
+    color: var(--accent-primary);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.typing-cursor {
+    display: inline-block;
+    color: var(--accent-primary);
+    font-weight: 300;
+    animation: blink-cursor 0.8s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ============================================
+   Resume Button (Nav)
+   ============================================ */
+.nav-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-base);
+}
+
+.nav-resume:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    background: rgba(99, 102, 241, 0.06);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   Ghost Button (Resume in Hero)
+   ============================================ */
+.btn-ghost {
+    color: var(--text-secondary);
+    border: 1px dashed var(--border-color);
+    background: transparent;
+    padding: 12px 24px;
+}
+
+.btn-ghost:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    border-style: solid;
+    background: rgba(99, 102, 241, 0.05);
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   Glassmorphism Cards
+   ============================================ */
+.highlight-card {
+    background: rgba(99, 102, 241, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.highlight-card:hover {
+    background: rgba(99, 102, 241, 0.06);
+    border-color: rgba(99, 102, 241, 0.25);
+}
+
+[data-theme="dark"] .highlight-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .highlight-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Glassmorphism Testimonials */
+.testimonial-card {
+    background: rgba(99, 102, 241, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme="dark"] .testimonial-card {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* ============================================
+   Gradient Border Cards (on hover)
+   ============================================ */
+.project-card {
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 21px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    transition: background 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.project-card:hover::before {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899, #6366f1);
+}
+
+.skill-category {
+    position: relative;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 21px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    transition: background 0.5s ease;
+    pointer-events: none;
+}
+
+.skill-category:hover::before {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
+}
+
+/* ============================================
+   Animated Tool Tags (hover glow)
+   ============================================ */
+.tool-tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-tag::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.15);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.tool-tag:hover::after {
+    width: 200%;
+    height: 200%;
+}
+
+/* ============================================
+   Parallax Section Decorations
+   ============================================ */
+.section {
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about .parallax-bg {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-primary);
+    top: 10%;
+    right: -100px;
+}
+
+.experience .parallax-bg {
+    width: 350px;
+    height: 350px;
+    background: #ec4899;
+    bottom: 10%;
+    left: -80px;
+}
+
+.skills .parallax-bg {
+    width: 300px;
+    height: 300px;
+    background: #14b8a6;
+    top: 20%;
+    left: -60px;
+}
+
+/* ============================================
+   Magnetic Button Effect
+   ============================================ */
+.magnetic {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================
+   Enhanced Card Hover Glow
+   ============================================ */
+.timeline-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.03), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.timeline-content:hover::after {
+    left: 100%;
+}
+
+/* ============================================
+   Blog Card Image Zoom
+   ============================================ */
+.blog-image {
+    overflow: hidden;
+}
+
+.blog-image-icon {
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* ============================================
+   Contact Card Gradient Border on Hover
+   ============================================ */
+.contact-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2px;
+    width: 3px;
+    height: 0;
+    background: var(--gradient-primary);
+    border-radius: 3px;
+    transition: height 0.4s ease;
+}
+
+.contact-card:hover::before {
+    height: 100%;
+}
+
+/* ============================================
+   Nav Resume - Responsive
+   ============================================ */
+@media (max-width: 768px) {
+    .nav-resume {
+        display: none;
+    }
+}
+
+/* ============================================
+   Smooth Number Highlight
+   ============================================ */
+.stat:hover .stat-number {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-number {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* ============================================
+   Social Link Tooltip
+   ============================================ */
+.social-link {
+    position: relative;
+}
+
+.social-link::after {
+    content: attr(aria-label);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: white;
+    background: var(--accent-primary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.social-link:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================
+   Floating Fintech Icons
+   ============================================ */
+.fintech-floaters {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.fintech-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    animation: fintechFloat linear infinite;
+}
+
+/* Currency symbol style */
+.fintech-icon.currency {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+/* SVG icon style */
+.fintech-icon svg {
+    stroke: var(--accent-primary);
+    opacity: 0.7;
+}
+
+/* Size variants */
+.fintech-icon.size-sm {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    border: 1px solid rgba(99, 102, 241, 0.08);
+    background: rgba(99, 102, 241, 0.03);
+}
+
+.fintech-icon.size-md {
+    width: 52px;
+    height: 52px;
+    font-size: 1.3rem;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    background: rgba(99, 102, 241, 0.04);
+}
+
+.fintech-icon.size-lg {
+    width: 64px;
+    height: 64px;
+    font-size: 1.6rem;
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+[data-theme="dark"] .fintech-icon.size-sm {
+    border-color: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="dark"] .fintech-icon.size-md {
+    border-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.025);
+}
+
+[data-theme="dark"] .fintech-icon.size-lg {
+    border-color: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+@keyframes fintechFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(0deg);
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(360deg);
+    }
+}
+
+/* Horizontal drift variant */
+.fintech-icon.drift-left {
+    animation-name: fintechFloatLeft;
+}
+
+.fintech-icon.drift-right {
+    animation-name: fintechFloatRight;
+}
+
+@keyframes fintechFloatLeft {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+    }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) translateX(-80px) rotate(270deg);
+    }
+}
+
+@keyframes fintechFloatRight {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+    }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) translateX(80px) rotate(-270deg);
+    }
+}
+
+/* Subtle pulse on some icons */
+.fintech-icon.pulse {
+    animation: fintechPulseFloat linear infinite;
+}
+
+@keyframes fintechPulseFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0.8) rotate(0deg);
+    }
+    10% { opacity: 0.5; }
+    50% { transform: translateY(50vh) scale(1.05) rotate(180deg); }
+    90% { opacity: 0.5; }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.8) rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .fintech-icon.size-lg {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
+    .fintech-icon.size-md {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}

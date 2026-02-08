@@ -10,6 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="logo-bracket">&lt;</span>KDS<span class="logo-bracket">/&gt;</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Cursor Glow -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -24,7 +39,6 @@
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
                 <li><a href="#blog" class="nav-link">Insights</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -45,7 +59,7 @@
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
-                <a href="#contact" class="nav-cta">Let's Talk</a>
+                <a href="#contact" class="nav-cta magnetic">Let's Talk</a>
                 <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -58,19 +72,20 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <!-- Floating Fintech Icons -->
+        <div class="fintech-floaters" id="fintechFloaters"></div>
         <div class="hero-content">
             <div class="hero-badge reveal">
                 <span class="badge-dot"></span>
                 Available for opportunities
             </div>
             <h1 class="hero-title reveal">
-                <span class="hero-line">I build products</span>
+                <span class="hero-line">I build <span class="typing-wrapper"><span class="typing-text" id="typingText"></span><span class="typing-cursor">|</span></span></span>
                 <span class="hero-line">that <span class="gradient-text">people love</span></span>
                 <span class="hero-line">&amp; businesses need.</span>
             </h1>
             <p class="hero-subtitle reveal">
-                Fintech Product Manager based in the UAE with a passion for building digital payments,
-                neobanking, and financial inclusion products. Experienced across companies like Astratech/Botim, Dopay, Mintok, and Novo.
+                From super apps to neobanks, I turn bold fintech ideas into products that move money, power cross-border remittances, and drive financial inclusion across the MENA region and beyond.
             </p>
             <div class="hero-actions reveal">
                 <a href="#projects" class="btn btn-primary">
@@ -80,7 +95,7 @@
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </a>
-                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                <a href="#contact" class="btn btn-outline magnetic">Get In Touch</a>
             </div>
             <div class="hero-stats reveal">
                 <div class="stat">
@@ -584,93 +599,6 @@
                         <span class="tool-tag">Segment</span>
                         <span class="tool-tag">Productboard</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="section testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Testimonials</span>
-                <h2 class="section-title">What people say<br><span class="gradient-text">about working with me</span></h2>
-            </div>
-            <div class="testimonials-carousel reveal">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" opacity="0.2">
-                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                            </svg>
-                        </div>
-                        <p class="testimonial-text">Kunal is one of the most talented PMs I've ever worked with. His ability to translate complex fintech requirements into elegant user experiences is unmatched. He brought clarity to chaos and shipped features that moved the needle.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">SK</div>
-                            <div class="author-info">
-                                <span class="author-name">Sarah Kim</span>
-                                <span class="author-role">VP of Engineering, Astratech</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" opacity="0.2">
-                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                            </svg>
-                        </div>
-                        <p class="testimonial-text">Working with Kunal was transformative for our product org. He introduced frameworks and processes that not only improved our velocity but fundamentally changed how we think about building fintech products. A true product visionary.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">MR</div>
-                            <div class="author-info">
-                                <span class="author-name">Michael Rodriguez</span>
-                                <span class="author-role">CEO, Dopay</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" opacity="0.2">
-                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                            </svg>
-                        </div>
-                        <p class="testimonial-text">Kunal has a rare combination of strategic thinking and hands-on execution. He doesn't just create roadmaps — he rallies teams, removes blockers, and ensures every feature delivers real value. Our NPS jumped 40 points under his leadership.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar" style="background: linear-gradient(135deg, #14b8a6, #06b6d4);">JT</div>
-                            <div class="author-info">
-                                <span class="author-name">Jessica Turner</span>
-                                <span class="author-role">Head of Design, Mintok</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" opacity="0.2">
-                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                            </svg>
-                        </div>
-                        <p class="testimonial-text">I've mentored dozens of PMs, and Kunal stands out as someone who truly gets it. Data-informed but user-obsessed, technical but empathetic, ambitious but pragmatic. He's the kind of PM every fintech team wants.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">DL</div>
-                            <div class="author-info">
-                                <span class="author-name">David Lee</span>
-                                <span class="author-role">Product Advisor & Angel Investor</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-controls">
-                    <button class="carousel-btn prev" id="prevBtn" aria-label="Previous testimonial">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-                    <div class="carousel-dots" id="carouselDots"></div>
-                    <button class="carousel-btn next" id="nextBtn" aria-label="Next testimonial">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
                 </div>
             </div>
         </div>
