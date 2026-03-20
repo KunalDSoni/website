@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 5. Typing Animation
     // ============================================
     var typingElement = document.getElementById('typingText');
-    var words = ['money', 'payments', 'super apps', 'wallets', 'lending'];
+    var words = ['money', 'payments', 'remittance', 'cards', 'wallets', 'lending'];
     var wordIndex = 0;
     var charIndex = words[0].length; // Start with full word displayed
     var isDeleting = true;
@@ -153,38 +153,62 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(typeEffect, 2500);
 
     // ============================================
-    // 6. Stat Counter Animation
+    // 6. Casino Rolling Numbers — rapid random cycling
     // ============================================
-    function animateStats() {
-        var stats = document.querySelectorAll('.stat-num');
-        stats.forEach(function (stat) {
-            if (stat.dataset.animated) return;
+    function animateCasinoNumber(el) {
+        if (el.dataset.animated) return;
+        el.dataset.animated = 'true';
 
-            var target = parseInt(stat.dataset.target) || 0;
-            var prefix = stat.dataset.prefix || '';
-            var suffix = stat.dataset.suffix || '';
-            var duration = 2000;
-            var start = performance.now();
+        var finalText = el.dataset.slot || '';
+        var chars = finalText.split('');
+        var display = chars.map(function () { return '\u00A0'; }); // start blank
+        el.textContent = display.join('');
 
-            function update(now) {
-                var elapsed = now - start;
-                var progress = Math.min(elapsed / duration, 1);
-                // Ease out cubic
-                var eased = 1 - Math.pow(1 - progress, 3);
-                var current = Math.floor(eased * target);
-                stat.textContent = prefix + current + suffix;
+        // For each character position, if it's a digit, cycle random numbers
+        // then settle. Non-digits appear instantly when their turn comes.
+        var totalDuration = 1600; // ms for full animation
+        var perChar = totalDuration / chars.length;
 
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                } else {
-                    stat.textContent = prefix + target + suffix;
-                    stat.dataset.animated = 'true';
-                }
+        chars.forEach(function (targetChar, i) {
+            var isDigit = /[0-9]/.test(targetChar);
+            var settleTime = (i + 1) * perChar; // when this char locks in
+
+            if (isDigit) {
+                // Start cycling random digits for this position
+                var cycleInterval = setInterval(function () {
+                    display[i] = String(Math.floor(Math.random() * 10));
+                    el.textContent = display.join('');
+                }, 50);
+
+                // Lock in the real digit after settleTime
+                setTimeout(function () {
+                    clearInterval(cycleInterval);
+                    display[i] = targetChar;
+                    el.textContent = display.join('');
+                }, settleTime);
+            } else {
+                // Non-digit: reveal at settle time
+                setTimeout(function () {
+                    display[i] = targetChar;
+                    el.textContent = display.join('');
+                }, settleTime * 0.5); // symbols appear a bit earlier
             }
-
-            requestAnimationFrame(update);
         });
     }
+
+    function animateStats() {
+        var slots = document.querySelectorAll('.slot-number');
+        slots.forEach(function (el) {
+            animateCasinoNumber(el);
+        });
+    }
+
+    // Show placeholder on load
+    document.querySelectorAll('.slot-number').forEach(function (el) {
+        var text = el.dataset.slot || '';
+        // Show dashes as placeholder
+        el.textContent = text.replace(/[0-9]/g, '0');
+    });
 
     // ============================================
     // 7. Scroll Reveal (IntersectionObserver)
@@ -196,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
 
-                    // Trigger stat counters when hero-stats become visible
+                    // Trigger casino rolling numbers when hero-stats become visible
                     if (entry.target.closest('.hero-stats') || entry.target.classList.contains('stat')) {
                         animateStats();
                     }
