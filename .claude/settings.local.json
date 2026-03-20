@@ -1,7 +1,21 @@
 {
   "permissions": {
     "allow": [
-      "Bash(open:*)"
+      "Bash(open:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpdate website with enhanced styling, scripts, and layout\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(gh api:*)",
+      "Bash(ssh:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "WebFetch(domain:www.linkedin.com)",
+      "Bash(curl:*)",
+      "WebFetch(domain:novo.co)",
+      "WebFetch(domain:botim.com)",
+      "WebFetch(domain:mintoak.com)",
+      "WebFetch(domain:dopay.com)",
+      "WebFetch(domain:www.novo.co)"
     ]
   }
 }
