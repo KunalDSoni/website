@@ -1,830 +1,391 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Kunal D Soni | Fintech Product Manager</title>
+    <title>Kunal D Soni — Fintech Product Leader</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-content">
-            <div class="loader-logo">
-                <span class="logo-bracket">&lt;</span>KDS<span class="logo-bracket">/&gt;</span>
-            </div>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
-            </div>
-        </div>
-    </div>
+    <!-- Grain Overlay -->
+    <div class="grain"></div>
 
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
 
-    <!-- Cursor Glow -->
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <!-- Scroll Progress -->
+    <div class="scroll-line" id="scrollProgress"></div>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>Kunal D Soni<span class="logo-bracket">/&gt;</span>
-            </a>
-            <ul class="nav-menu" id="navMenu">
+    <nav class="nav" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-name">Kunal D Soni</a>
+            <ul class="nav-links" id="navMenu">
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Work</a></li>
+                <li><a href="#companies" class="nav-link">Companies</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#blog" class="nav-link">Insights</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
             </ul>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-                <a href="#contact" class="nav-cta magnetic">Let's Talk</a>
-                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <a href="mailto:soni.kunal.dilip@gmail.com" class="nav-cta">Let's Talk</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ==================== HERO ==================== -->
     <section class="hero" id="hero">
-        <canvas class="hero-canvas" id="heroCanvas"></canvas>
-        <!-- Floating Fintech Icons -->
-        <div class="fintech-floaters" id="fintechFloaters"></div>
-        <div class="hero-content">
-            <div class="hero-badge reveal">
-                <span class="badge-dot"></span>
-                Available for opportunities
-            </div>
-            <h1 class="hero-title reveal">
-                <span class="hero-line">I build <span class="typing-wrapper"><span class="typing-text" id="typingText"></span><span class="typing-cursor">|</span></span></span>
-                <span class="hero-line">that <span class="gradient-text">people love</span></span>
-                <span class="hero-line">&amp; businesses need.</span>
+        <div class="hero-inner">
+            <p class="hero-eyebrow anim-up">Fintech Product Leader · Dubai, UAE</p>
+            <h1 class="hero-headline">
+                <span class="line anim-up"><span class="line-inner">I build the</span></span>
+                <span class="line anim-up"><span class="line-inner serif-italic">products</span> <span class="line-inner">that move</span></span>
+                <span class="line anim-up"><span class="line-inner">the world's </span><span class="line-inner accent" id="typingText">money</span><span class="typing-cursor"></span></span>
             </h1>
-            <p class="hero-subtitle reveal">
-                From super apps to neobanks, I turn bold fintech ideas into products that move money, power cross-border remittances, and drive financial inclusion across the MENA region and beyond.
-            </p>
-            <div class="hero-actions reveal">
-                <a href="#projects" class="btn btn-primary">
-                    View My Work
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-                <a href="#contact" class="btn btn-outline magnetic">Get In Touch</a>
-            </div>
-            <div class="hero-stats reveal">
-                <div class="stat">
-                    <span class="stat-number" data-target="12">0</span>
-                    <span class="stat-label">Products Launched</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="50" data-suffix="M+">0</span>
-                    <span class="stat-label">Users Impacted</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="340" data-prefix="$" data-suffix="M">0</span>
-                    <span class="stat-label">Revenue Generated</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="8" data-suffix="+">0</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
+            <p class="hero-sub anim-up">From super apps to neobanks — 8+ years turning bold fintech ideas into products used by millions across emerging markets.</p>
+            <div class="hero-ctas anim-up">
+                <a href="#projects" class="cta-primary">View My Work <span class="arrow">→</span></a>
+                <a href="mailto:soni.kunal.dilip@gmail.com" class="cta-ghost">Get in Touch</a>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="mouse-wheel"></div>
+        <div class="hero-stats">
+            <div class="stat anim-up">
+                <span class="stat-num" data-target="12">0</span>
+                <span class="stat-text">Products<br>Launched</span>
             </div>
-            <span>Scroll to explore</span>
+            <div class="stat anim-up">
+                <span class="stat-num" data-target="50" data-suffix="M+">0</span>
+                <span class="stat-text">Users<br>Impacted</span>
+            </div>
+            <div class="stat anim-up">
+                <span class="stat-num" data-target="340" data-prefix="$" data-suffix="M">0</span>
+                <span class="stat-text">Revenue<br>Generated</span>
+            </div>
+            <div class="stat anim-up">
+                <span class="stat-num" data-target="8" data-suffix="+">0</span>
+                <span class="stat-text">Years in<br>Fintech</span>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
+    <!-- ==================== ABOUT ==================== -->
+    <section class="section" id="about">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">About Me</span>
-                <h2 class="section-title">Crafting fintech experiences<br>with <span class="gradient-text">purpose & precision</span></h2>
+            <div class="section-head anim-up">
+                <span class="section-num">01</span>
+                <h2 class="section-title">What I <em>bring</em></h2>
             </div>
+            <p class="section-lead anim-up">8+ years building fintech products across MENA, South Asia, and the US. Currently based in the UAE, obsessed with products that create real financial impact.</p>
             <div class="about-grid">
-                <div class="about-image reveal">
-                    <div class="image-frame">
-                        <div class="image-placeholder">
-                            <svg viewBox="0 0 200 200" width="200" height="200">
-                                <defs>
-                                    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#6366f1" />
-                                        <stop offset="100%" style="stop-color:#8b5cf6" />
-                                    </linearGradient>
-                                </defs>
-                                <circle cx="100" cy="80" r="40" fill="url(#avatarGrad)" opacity="0.8"/>
-                                <ellipse cx="100" cy="170" rx="60" ry="45" fill="url(#avatarGrad)" opacity="0.6"/>
-                            </svg>
-                        </div>
-                        <div class="image-decoration"></div>
+                <div class="about-card anim-up" data-tilt>
+                    <span class="about-icon">🎯</span>
+                    <h3>Product Strategy</h3>
+                    <p>From vision to execution — aligning business goals with user needs across diverse markets and regulatory environments.</p>
+                </div>
+                <div class="about-card anim-up" data-tilt>
+                    <span class="about-icon">💳</span>
+                    <h3>Payments & Wallets</h3>
+                    <p>Deep expertise across wallets, lending, super apps, and embedded finance ecosystems.</p>
+                </div>
+                <div class="about-card anim-up" data-tilt>
+                    <span class="about-icon">🌍</span>
+                    <h3>Cross-border</h3>
+                    <p>Seamless money movement and financial inclusion for emerging markets globally.</p>
+                </div>
+                <div class="about-card anim-up" data-tilt>
+                    <span class="about-icon">📊</span>
+                    <h3>Data-Driven</h3>
+                    <p>Leveraging analytics and user research to balance insights with quantitative rigor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WORK ==================== -->
+    <section class="section section-alt" id="projects">
+        <div class="container">
+            <div class="section-head anim-up">
+                <span class="section-num">02</span>
+                <h2 class="section-title">Selected <em>work</em></h2>
+            </div>
+            <div class="work-list">
+                <a href="https://www.botim.me" class="work-item anim-up" target="_blank" data-color="#7B2FFF">
+                    <div class="work-index">01</div>
+                    <div class="work-info">
+                        <h3>Botim</h3>
+                        <p>Super App — Payments ecosystem for 10M+ users across messaging, payments, and lifestyle.</p>
                     </div>
-                    <div class="about-floater floater-1">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                        </svg>
-                        <span>Payments</span>
+                    <div class="work-meta">
+                        <span class="work-tag">10M+ Users</span>
+                        <span class="work-tag">$2B+ GMV</span>
+                        <span class="work-tag">5 Countries</span>
                     </div>
-                    <div class="about-floater floater-2">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                        <span>Neobanking</span>
+                    <span class="work-arrow">→</span>
+                </a>
+                <a href="https://www.dopay.com" class="work-item anim-up" target="_blank" data-color="#FF6B2C">
+                    <div class="work-index">02</div>
+                    <div class="work-info">
+                        <h3>Dopay</h3>
+                        <p>B2B payment infrastructure for SMEs — merchant dashboard, gateways, and settlement systems.</p>
                     </div>
-                    <div class="about-floater floater-3">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                        </svg>
-                        <span>Fintech</span>
+                    <div class="work-meta">
+                        <span class="work-tag">50K+ Merchants</span>
+                        <span class="work-tag">300% Growth</span>
+                    </div>
+                    <span class="work-arrow">→</span>
+                </a>
+                <a href="https://www.mintoak.com" class="work-item anim-up" target="_blank" data-color="#00B388">
+                    <div class="work-index">03</div>
+                    <div class="work-info">
+                        <h3>Mintoak</h3>
+                        <p>End-to-end lending platform with instant credit assessment and dynamic pricing.</p>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">$50M+ Disbursed</span>
+                        <span class="work-tag">85% Approval</span>
+                    </div>
+                    <span class="work-arrow">→</span>
+                </a>
+                <a href="https://www.novo.co" class="work-item anim-up" target="_blank" data-color="#FFC629">
+                    <div class="work-index">04</div>
+                    <div class="work-info">
+                        <h3>Novo</h3>
+                        <p>Core banking platform for SMBs — API design, account management, and compliance tooling.</p>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">100K+ Users</span>
+                        <span class="work-tag">50+ APIs</span>
+                        <span class="work-tag">99.9% Uptime</span>
+                    </div>
+                    <span class="work-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COMPANIES ==================== -->
+    <section class="section" id="companies">
+        <div class="container">
+            <div class="section-head anim-up">
+                <span class="section-num">03</span>
+                <h2 class="section-title">Companies I <em>helped build</em></h2>
+            </div>
+            <div class="company-grid">
+                <div class="company-card anim-up" data-tilt style="--accent: #7B2FFF">
+                    <div class="company-top">
+                        <span class="company-badge">Unicorn</span>
+                        <span class="company-location">Abu Dhabi, UAE</span>
+                    </div>
+                    <h3 class="company-name">Botim</h3>
+                    <p class="company-desc">Super App by Astra Tech</p>
+                    <div class="company-stats">
+                        <div><strong>100M+</strong><span>Downloads</span></div>
+                        <div><strong>$1B+</strong><span>Valuation</span></div>
+                        <div><strong>190+</strong><span>Countries</span></div>
+                    </div>
+                    <p class="company-parent">Parent: G42</p>
+                </div>
+                <div class="company-card anim-up" data-tilt style="--accent: #FF6B2C">
+                    <div class="company-top">
+                        <span class="company-badge">Fintech</span>
+                        <span class="company-location">Cairo, Egypt</span>
+                    </div>
+                    <h3 class="company-name">Dopay</h3>
+                    <p class="company-desc">Digital Payroll Platform</p>
+                    <div class="company-stats">
+                        <div><strong>50K+</strong><span>Workers Paid</span></div>
+                        <div><strong>300%</strong><span>GMV Growth</span></div>
                     </div>
                 </div>
-                <div class="about-content">
-                    <div class="about-text reveal">
-                        <p>I'm a fintech product leader based in the UAE, passionate about building digital financial products that drive inclusion and simplify money management. I've had the privilege of shaping products across payments, neobanking, and payroll solutions at companies like Astratech/Botim, Dopay, Mintok, and Novo.</p>
-                        <p>My approach combines deep fintech domain expertise with data-driven decision making and genuine empathy for users. I believe the best financial products aren't just functional — they're trustworthy, accessible, and empower people to take control of their finances.</p>
-                        <p>When I'm not shipping features, you'll find me exploring the latest in embedded finance, open banking, and AI-driven financial services across the MENA region and beyond.</p>
+                <div class="company-card anim-up" data-tilt style="--accent: #00B388">
+                    <div class="company-top">
+                        <span class="company-badge">SaaS</span>
+                        <span class="company-location">Mumbai, India</span>
                     </div>
-                    <div class="about-highlights reveal">
-                        <div class="highlight-card">
-                            <div class="highlight-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                                </svg>
-                            </div>
-                            <h4>Discovery & Research</h4>
-                            <p>Deep user research, competitive analysis, and market sizing to validate opportunities.</p>
-                        </div>
-                        <div class="highlight-card">
-                            <div class="highlight-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
-                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                </svg>
-                            </div>
-                            <h4>Strategy & Vision</h4>
-                            <p>Building product roadmaps aligned with business goals and customer needs.</p>
-                        </div>
-                        <div class="highlight-card">
-                            <div class="highlight-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
-                                    <path d="M18 20V10M12 20V4M6 20v-6"></path>
-                                </svg>
-                            </div>
-                            <h4>Execution & Growth</h4>
-                            <p>Shipping fast, measuring impact, and iterating based on data and feedback.</p>
-                        </div>
+                    <h3 class="company-name">Mintoak</h3>
+                    <p class="company-desc">Merchant Payment Platform</p>
+                    <div class="company-stats">
+                        <div><strong>2M+</strong><span>Merchants</span></div>
+                        <div><strong>SBI · Axis</strong><span>Partners</span></div>
+                    </div>
+                </div>
+                <div class="company-card anim-up" data-tilt style="--accent: #E8A317">
+                    <div class="company-top">
+                        <span class="company-badge">Neobank</span>
+                        <span class="company-location">New York, USA</span>
+                    </div>
+                    <h3 class="company-name">Novo</h3>
+                    <p class="company-desc">Business Banking for SMBs</p>
+                    <div class="company-stats">
+                        <div><strong>$90M</strong><span>Raised</span></div>
+                        <div><strong>200K+</strong><span>Businesses</span></div>
+                        <div><strong>99.9%</strong><span>Uptime</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="section experience" id="experience">
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section class="section section-alt" id="experience">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Experience</span>
-                <h2 class="section-title">A track record of<br><span class="gradient-text">building & scaling</span></h2>
+            <div class="section-head anim-up">
+                <span class="section-num">04</span>
+                <h2 class="section-title">The <em>journey</em></h2>
             </div>
             <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <span class="timeline-date">Recent</span>
-                                <h3 class="timeline-role">Product Manager</h3>
-                                <span class="timeline-company">Astratech / Botim</span>
-                            </div>
-                            <div class="timeline-logo">AT</div>
-                        </div>
-                        <p class="timeline-description">Driving product strategy for the super app's fintech vertical, including digital payments, wallet services, and financial features serving millions of users across the UAE and MENA region.</p>
-                        <div class="timeline-tags">
-                            <span class="tag">Super App</span>
-                            <span class="tag">Digital Payments</span>
-                            <span class="tag">Wallet</span>
-                            <span class="tag">MENA</span>
-                        </div>
+                <div class="tl-item anim-up">
+                    <div class="tl-year">2023 —</div>
+                    <div class="tl-body">
+                        <h3>Senior PM, Payments & Finance</h3>
+                        <p class="tl-company">Astratech (Botim)</p>
+                        <p class="tl-desc">Leading financial products within Botim's super app — wallet, transfers, bill payments, and monetization for 10M+ users across MENA and South Asia.</p>
                     </div>
                 </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <span class="timeline-date">Previous</span>
-                                <h3 class="timeline-role">Product Manager</h3>
-                                <span class="timeline-company">Dopay</span>
-                            </div>
-                            <div class="timeline-logo">DP</div>
-                        </div>
-                        <p class="timeline-description">Led product development for the digital payroll and neobanking platform, enabling employers to digitize salary payments and providing unbanked workers with their first financial accounts.</p>
-                        <div class="timeline-tags">
-                            <span class="tag">Neobanking</span>
-                            <span class="tag">Payroll</span>
-                            <span class="tag">Financial Inclusion</span>
-                            <span class="tag">B2B2C</span>
-                        </div>
+                <div class="tl-item anim-up">
+                    <div class="tl-year">2022 — 23</div>
+                    <div class="tl-body">
+                        <h3>Lead PM, Business & Commerce</h3>
+                        <p class="tl-company">Dopay</p>
+                        <p class="tl-desc">Built and scaled merchant payment solutions for SMEs. Launched gateway integrations, POS systems, and business banking — 300% GMV growth YoY.</p>
                     </div>
                 </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <span class="timeline-date">Previous</span>
-                                <h3 class="timeline-role">Product Manager</h3>
-                                <span class="timeline-company">Mintok</span>
-                            </div>
-                            <div class="timeline-logo">MK</div>
-                        </div>
-                        <p class="timeline-description">Shaped the product roadmap for the fintech platform, focusing on digital payment solutions and user experience improvements that drove adoption and engagement.</p>
-                        <div class="timeline-tags">
-                            <span class="tag">Fintech</span>
-                            <span class="tag">Payments</span>
-                            <span class="tag">User Growth</span>
-                            <span class="tag">Product Strategy</span>
-                        </div>
+                <div class="tl-item anim-up">
+                    <div class="tl-year">2020 — 22</div>
+                    <div class="tl-body">
+                        <h3>Senior PM, Lending & Credit</h3>
+                        <p class="tl-company">Mintoak</p>
+                        <p class="tl-desc">Designed digital lending products for emerging markets. Built credit scoring, risk frameworks, and borrower onboarding — $50M+ loan disbursements.</p>
                     </div>
                 </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <span class="timeline-date">Previous</span>
-                                <h3 class="timeline-role">Product Manager</h3>
-                                <span class="timeline-company">Novo</span>
-                            </div>
-                            <div class="timeline-logo">NV</div>
-                        </div>
-                        <p class="timeline-description">Contributed to building the digital banking platform for small businesses and freelancers, streamlining account opening, payments, and financial management tools.</p>
-                        <div class="timeline-tags">
-                            <span class="tag">Digital Banking</span>
-                            <span class="tag">SMB</span>
-                            <span class="tag">Onboarding</span>
-                            <span class="tag">Fintech</span>
-                        </div>
+                <div class="tl-item anim-up">
+                    <div class="tl-year">2018 — 20</div>
+                    <div class="tl-body">
+                        <h3>Product Manager, Banking Infra</h3>
+                        <p class="tl-company">Novo</p>
+                        <p class="tl-desc">Core banking platform infrastructure — API design, account management, and compliance tooling. Scaled from 10K to 100K+ users.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects / Case Studies Section -->
-    <section class="section projects" id="projects">
+    <!-- ==================== SKILLS ==================== -->
+    <section class="section" id="skills">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Case Studies</span>
-                <h2 class="section-title">Products that made<br>a <span class="gradient-text">real difference</span></h2>
+            <div class="section-head anim-up">
+                <span class="section-num">05</span>
+                <h2 class="section-title">Tools & <em>expertise</em></h2>
             </div>
-            <div class="projects-grid">
-                <div class="project-card reveal" data-category="fintech">
-                    <div class="project-image" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
-                        <div class="project-overlay">
-                            <button class="project-btn" data-modal="modal1">View Case Study</button>
-                        </div>
-                        <div class="project-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" width="48" height="48">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span class="project-category">Fintech</span>
-                            <span class="project-year">2023</span>
-                        </div>
-                        <h3 class="project-title">PayFlow Checkout Redesign</h3>
-                        <p class="project-desc">Redesigned the entire checkout flow reducing cart abandonment by 18% and increasing revenue by $12M annually.</p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-value">-18%</span>
-                                <span class="metric-label">Abandonment</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">+23%</span>
-                                <span class="metric-label">Conversion</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">$12M</span>
-                                <span class="metric-label">Revenue Impact</span>
-                            </div>
-                        </div>
+            <div class="skills-wrap anim-up">
+                <div class="skill-col">
+                    <h4>Product Management</h4>
+                    <div class="chips">
+                        <span>Strategy & Roadmapping</span><span>Stakeholder Management</span><span>Product Discovery</span><span>Go-to-Market</span><span>OKRs & Metrics</span>
                     </div>
                 </div>
-
-                <div class="project-card reveal" data-category="saas">
-                    <div class="project-image" style="background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);">
-                        <div class="project-overlay">
-                            <button class="project-btn" data-modal="modal2">View Case Study</button>
-                        </div>
-                        <div class="project-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" width="48" height="48">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span class="project-category">B2B SaaS</span>
-                            <span class="project-year">2021</span>
-                        </div>
-                        <h3 class="project-title">Analytics Dashboard 2.0</h3>
-                        <p class="project-desc">Built an enterprise analytics platform from 0→1, growing to 2,000+ customers and $45M ARR within 18 months.</p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-value">2K+</span>
-                                <span class="metric-label">Customers</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">$45M</span>
-                                <span class="metric-label">ARR</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">4.8★</span>
-                                <span class="metric-label">G2 Rating</span>
-                            </div>
-                        </div>
+                <div class="skill-col">
+                    <h4>Fintech Domain</h4>
+                    <div class="chips">
+                        <span>Payments & Wallets</span><span>Cross-border Remittance</span><span>KYC/AML</span><span>Embedded Finance</span><span>Lending & Credit</span>
                     </div>
                 </div>
-
-                <div class="project-card reveal" data-category="consumer">
-                    <div class="project-image" style="background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);">
-                        <div class="project-overlay">
-                            <button class="project-btn" data-modal="modal3">View Case Study</button>
-                        </div>
-                        <div class="project-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" width="48" height="48">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span class="project-category">Consumer</span>
-                            <span class="project-year">2020</span>
-                        </div>
-                        <h3 class="project-title">Social Onboarding Revamp</h3>
-                        <p class="project-desc">Redesigned the mobile onboarding experience improving Day-7 retention by 35% and reducing time-to-value by 60%.</p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-value">+35%</span>
-                                <span class="metric-label">Retention</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">-60%</span>
-                                <span class="metric-label">Time to Value</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">5M+</span>
-                                <span class="metric-label">Users</span>
-                            </div>
-                        </div>
+                <div class="skill-col">
+                    <h4>Analytics & Data</h4>
+                    <div class="chips">
+                        <span>SQL</span><span>A/B Testing</span><span>Product Analytics</span><span>User Segmentation</span><span>Revenue Modeling</span>
                     </div>
                 </div>
-
-                <div class="project-card reveal" data-category="ai">
-                    <div class="project-image" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);">
-                        <div class="project-overlay">
-                            <button class="project-btn" data-modal="modal4">View Case Study</button>
-                        </div>
-                        <div class="project-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" width="48" height="48">
-                                <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
-                                <path d="M12 2a10 10 0 0 1 10 10h-10V2z" opacity="0.5"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </div>
+                <div class="skill-col">
+                    <h4>Design & UX</h4>
+                    <div class="chips">
+                        <span>User Research</span><span>Wireframing</span><span>Prototyping</span><span>Design Systems</span><span>Accessibility</span>
                     </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span class="project-category">AI / ML</span>
-                            <span class="project-year">2024</span>
-                        </div>
-                        <h3 class="project-title">AI-Powered Recommendations</h3>
-                        <p class="project-desc">Launched an ML-driven personalization engine that increased engagement by 42% and average order value by 28%.</p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-value">+42%</span>
-                                <span class="metric-label">Engagement</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">+28%</span>
-                                <span class="metric-label">AOV</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">94%</span>
-                                <span class="metric-label">Accuracy</span>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+            </div>
+            <div class="marquee anim-up">
+                <div class="marquee-inner">
+                    <span>Jira</span><span>Figma</span><span>Amplitude</span><span>Mixpanel</span><span>Notion</span><span>Miro</span><span>Looker</span><span>Tableau</span><span>SQL</span><span>Python</span><span>Confluence</span><span>Linear</span><span>Hotjar</span><span>Pendo</span><span>Segment</span><span>Productboard</span>
+                    <span>Jira</span><span>Figma</span><span>Amplitude</span><span>Mixpanel</span><span>Notion</span><span>Miro</span><span>Looker</span><span>Tableau</span><span>SQL</span><span>Python</span><span>Confluence</span><span>Linear</span><span>Hotjar</span><span>Pendo</span><span>Segment</span><span>Productboard</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="section skills" id="skills">
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="section section-alt" id="testimonials">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Skills & Tools</span>
-                <h2 class="section-title">My product<br><span class="gradient-text">toolkit</span></h2>
+            <div class="section-head anim-up">
+                <span class="section-num">06</span>
+                <h2 class="section-title">Kind <em>words</em></h2>
             </div>
-            <div class="skills-grid">
-                <div class="skill-category reveal">
-                    <h3 class="skill-category-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
-                        Product Strategy
-                    </h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Product Roadmapping</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Market Research</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Competitive Analysis</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">OKRs & KPIs</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Go-to-Market Strategy</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-                        </div>
+            <div class="testimonial-wrap anim-up">
+                <div class="testimonial-track" id="carouselTrack">
+                    <div class="test-slide">
+                        <blockquote>"A truly talented product professional with a passion for what he loves. Dedicated, committed and always positive."</blockquote>
+                        <cite><strong>Caelin Jade Vicars</strong> — Talent Acquisition @Exinity</cite>
+                    </div>
+                    <div class="test-slide">
+                        <blockquote>"A very reliable resource, always open to discussions and new ideas. Thorough with his work — an asset to any organization."</blockquote>
+                        <cite><strong>Swati Chatterjee</strong> — Head of Transaction Monitoring</cite>
+                    </div>
+                    <div class="test-slide">
+                        <blockquote>"Eager to learn, excited to collaborate. Great at keeping up with the pace of a modern startup."</blockquote>
+                        <cite><strong>Matt Hamilton</strong> — Head of Engineering @Hatz</cite>
+                    </div>
+                    <div class="test-slide">
+                        <blockquote>"Thorough understanding of the products. So much passion for best-in-class user experience. Kunal works hard, and does it right!"</blockquote>
+                        <cite><strong>Manish Sharma</strong> — Senior Software Dev Engineer</cite>
+                    </div>
+                    <div class="test-slide">
+                        <blockquote>"Extremely detailed in his product thinking. Could think of most possible edge cases and user scenarios."</blockquote>
+                        <cite><strong>Piyush Arora</strong> — Senior Staff Engineer</cite>
+                    </div>
+                    <div class="test-slide">
+                        <blockquote>"Sincere, humorous, easy-to-work-with. Very sharp and very good at what he does. Identified extremely interesting product gaps."</blockquote>
+                        <cite><strong>Manan Shah</strong> — Sr. Engineering Manager @Corpository</cite>
+                    </div>
+                    <div class="test-slide">
+                        <blockquote>"A truly valuable asset to any team. Honest, dependable, and incredibly hard-working with an impressive personality."</blockquote>
+                        <cite><strong>Atit Shah</strong> — Lead Software Developer</cite>
+                    </div>
+                    <div class="test-slide">
+                        <blockquote>"His knowledge of product strategy proved invaluable. Put a strong foundation for product development in the company."</blockquote>
+                        <cite><strong>Hardipsinh Jadeja</strong> — Microservice Developer</cite>
                     </div>
                 </div>
-                <div class="skill-category reveal">
-                    <h3 class="skill-category-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
-                            <path d="M12 20V10M18 20V4M6 20v-4"></path>
-                        </svg>
-                        Analytics & Data
-                    </h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">SQL & Data Analysis</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">A/B Testing</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Product Analytics</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">User Segmentation</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="87"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Revenue Modeling</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="83"></div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category reveal">
-                    <h3 class="skill-category-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                        </svg>
-                        UX & Design
-                    </h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">User Research</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Wireframing</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Prototyping</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Design Systems</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Accessibility</span>
-                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category reveal">
-                    <h3 class="skill-category-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                        </svg>
-                        Tools
-                    </h3>
-                    <div class="tool-tags">
-                        <span class="tool-tag">Jira</span>
-                        <span class="tool-tag">Figma</span>
-                        <span class="tool-tag">Amplitude</span>
-                        <span class="tool-tag">Mixpanel</span>
-                        <span class="tool-tag">Notion</span>
-                        <span class="tool-tag">Miro</span>
-                        <span class="tool-tag">Looker</span>
-                        <span class="tool-tag">Tableau</span>
-                        <span class="tool-tag">SQL</span>
-                        <span class="tool-tag">Python</span>
-                        <span class="tool-tag">Confluence</span>
-                        <span class="tool-tag">Linear</span>
-                        <span class="tool-tag">Hotjar</span>
-                        <span class="tool-tag">Pendo</span>
-                        <span class="tool-tag">Segment</span>
-                        <span class="tool-tag">Productboard</span>
-                    </div>
+                <div class="test-controls">
+                    <button class="test-btn" id="prevBtn">←</button>
+                    <div class="test-dots" id="carouselDots"></div>
+                    <button class="test-btn" id="nextBtn">→</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog / Insights Section -->
-    <section class="section blog" id="blog">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Insights</span>
-                <h2 class="section-title">Thoughts on<br><span class="gradient-text">fintech & product leadership</span></h2>
-            </div>
-            <div class="blog-grid">
-                <article class="blog-card blog-featured reveal">
-                    <div class="blog-image" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
-                        <span class="blog-badge">Featured</span>
-                        <div class="blog-image-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" width="40" height="40">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">Jan 15, 2025</span>
-                            <span class="blog-read">8 min read</span>
-                        </div>
-                        <h3 class="blog-title">Building Fintech Products in the MENA Region</h3>
-                        <p class="blog-excerpt">Lessons learned from building digital payment and neobanking products across the UAE and Middle East. How regulation, culture, and trust shape fintech product strategy.</p>
-                        <a href="#" class="blog-link">
-                            Read More
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
-                    </div>
-                </article>
-                <article class="blog-card reveal">
-                    <div class="blog-image" style="background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);">
-                        <div class="blog-image-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" width="32" height="32">
-                                <path d="M18 20V10M12 20V4M6 20v-6"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">Dec 28, 2024</span>
-                            <span class="blog-read">5 min read</span>
-                        </div>
-                        <h3 class="blog-title">Fintech Metrics That Matter: Beyond Downloads</h3>
-                        <p class="blog-excerpt">Stop tracking app installs and start measuring activation, transaction frequency, and ARPU. A practical guide to choosing the right north star metric for fintech.</p>
-                        <a href="#" class="blog-link">
-                            Read More
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
-                    </div>
-                </article>
-                <article class="blog-card reveal">
-                    <div class="blog-image" style="background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);">
-                        <div class="blog-image-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" width="32" height="32">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">Nov 10, 2024</span>
-                            <span class="blog-read">6 min read</span>
-                        </div>
-                        <h3 class="blog-title">The Rise of Super Apps in the Middle East</h3>
-                        <p class="blog-excerpt">How super apps are reshaping financial services in the MENA region. Lessons from building embedded finance features within messaging and lifestyle platforms.</p>
-                        <a href="#" class="blog-link">
-                            Read More
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Get In Touch</span>
-                <h2 class="section-title">Let's build something<br><span class="gradient-text">great together</span></h2>
-                <p class="section-subtitle">Whether you have a product challenge, a collaboration idea, or just want to chat about PM life — I'd love to hear from you.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info reveal">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>soni.kunal.dilip@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>United Arab Emirates</p>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>(+971) 529397033</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/kunaldsoni/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/KunalDSoni" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                        </a>
-                        <a href="mailto:soni.kunal.dilip@gmail.com" class="social-link" aria-label="Email">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <form class="contact-form reveal" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required placeholder=" ">
-                        <label for="name">Your Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required placeholder=" ">
-                        <label for="email">Your Email</label>
-                    </div>
-                    <div class="form-group">
-                        <select id="subject" name="subject" required>
-                            <option value="" disabled selected>Select a topic</option>
-                            <option value="collaboration">Product Collaboration</option>
-                            <option value="consulting">Consulting Inquiry</option>
-                            <option value="speaking">Speaking Opportunity</option>
-                            <option value="mentoring">Mentoring Request</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <label for="subject">Subject</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
-                        <label for="message">Your Message</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-full">
-                        <span>Send Message</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                        </svg>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="nav-logo">
-                        <span class="logo-bracket">&lt;</span>KDS<span class="logo-bracket">/&gt;</span>
-                    </a>
-                    <p>Building products that matter.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#blog">Blog</a>
-                    <a href="#contact">Contact</a>
-                </div>
+            <div class="footer-top">
+                <h2 class="footer-headline anim-up">Let's build<br><em>something great.</em></h2>
+                <a href="mailto:soni.kunal.dilip@gmail.com" class="footer-email anim-up">soni.kunal.dilip@gmail.com</a>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Kunal D Soni</p>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/kunaldsoni/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/KunalDSoni" target="_blank">GitHub</a>
+                    <a href="tel:+971529397033">+971 529 397 033</a>
+                </div>
+                <p class="footer-copy">&copy; 2026 Kunal D Soni</p>
             </div>
         </div>
     </footer>
-
-    <!-- Modal -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" id="modal">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <div class="modal-content" id="modalContent"></div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
