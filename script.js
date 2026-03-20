@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })();
 
         // Hover state — enlarge cursor on interactive elements
-        var hoverTargets = document.querySelectorAll('a, button, .work-item, .company-card, .about-card, .chips span, .test-btn, .nav-link');
+        var hoverTargets = document.querySelectorAll('a, button, .work-card, .company-card, .about-card, .chips span, .test-btn, .nav-link');
         hoverTargets.forEach(function (el) {
             el.addEventListener('mouseenter', function () { document.body.classList.add('cursor-hover'); });
             el.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-hover'); });

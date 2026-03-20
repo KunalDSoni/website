@@ -32,7 +32,7 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
             </ul>
-            <a href="mailto:soni.kunal.dilip@gmail.com" class="nav-cta">Let's Talk</a>
+            <a href="#contact" class="nav-cta">Let's Talk</a>
             <button class="hamburger" id="hamburger" aria-label="Menu">
                 <span></span><span></span>
             </button>
@@ -42,7 +42,7 @@
     <!-- ==================== HERO ==================== -->
     <section class="hero" id="hero">
         <div class="hero-inner">
-            <p class="hero-eyebrow anim-up">Fintech Product Leader · Dubai, UAE</p>
+            <p class="hero-eyebrow anim-up">Senior Fintech Product Leader · Abu Dhabi, Dubai, UAE</p>
             <h1 class="hero-headline">
                 <span class="line anim-up"><span class="line-inner">I build the</span></span>
                 <span class="line anim-up"><span class="line-inner serif-italic">products</span> <span class="line-inner">that move</span></span>
@@ -51,7 +51,6 @@
             <p class="hero-sub anim-up">From super apps to neobanks — 8+ years turning bold fintech ideas into products used by millions across emerging markets.</p>
             <div class="hero-ctas anim-up">
                 <a href="#projects" class="cta-primary">View My Work <span class="arrow">→</span></a>
-                <a href="mailto:soni.kunal.dilip@gmail.com" class="cta-ghost">Get in Touch</a>
             </div>
         </div>
         <div class="hero-stats">
@@ -114,56 +113,83 @@
                 <span class="section-num">02</span>
                 <h2 class="section-title">Selected <em>work</em></h2>
             </div>
-            <div class="work-list">
-                <a href="https://www.botim.me" class="work-item anim-up" target="_blank" data-color="#7B2FFF">
-                    <div class="work-index">01</div>
-                    <div class="work-info">
-                        <h3>Botim</h3>
-                        <p>Super App — Payments ecosystem for 10M+ users across messaging, payments, and lifestyle.</p>
+            <div class="work-grid">
+                <!-- Card 1 — LARGE (spans 2 cols on desktop) -->
+                <a href="https://www.botim.me" class="work-card work-card--lg anim-up" target="_blank" style="--card-bg: #7B2FFF; --card-bg2: #4a0fbf;">
+                    <div class="work-card__inner">
+                        <div class="work-card__icon">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(255,255,255,0.15)"/><path d="M18 20h20v4H18zM18 28h14v4H18zM18 36h18v4H18z" fill="#fff" opacity="0.9"/></svg>
+                        </div>
+                        <div class="work-card__tags">
+                            <span>Super App</span><span>Payments</span><span>10M+ Users</span>
+                        </div>
+                        <h3 class="work-card__title">Botim</h3>
+                        <p class="work-card__desc">End-to-end payments ecosystem within a super app — wallet, P2P transfers, bill payments, and lifestyle services for 10M+ users across 5 countries.</p>
+                        <div class="work-card__stats">
+                            <div><strong>$2B+</strong><span>GMV</span></div>
+                            <div><strong>10M+</strong><span>Users</span></div>
+                            <div><strong>5</strong><span>Countries</span></div>
+                        </div>
+                        <span class="work-card__arrow">→</span>
                     </div>
-                    <div class="work-meta">
-                        <span class="work-tag">10M+ Users</span>
-                        <span class="work-tag">$2B+ GMV</span>
-                        <span class="work-tag">5 Countries</span>
-                    </div>
-                    <span class="work-arrow">→</span>
                 </a>
-                <a href="https://www.dopay.com" class="work-item anim-up" target="_blank" data-color="#FF6B2C">
-                    <div class="work-index">02</div>
-                    <div class="work-info">
-                        <h3>Dopay</h3>
-                        <p>B2B payment infrastructure for SMEs — merchant dashboard, gateways, and settlement systems.</p>
+
+                <!-- Card 2 -->
+                <a href="https://www.dopay.com" class="work-card anim-up" target="_blank" style="--card-bg: #FF6B2C; --card-bg2: #d44a10;">
+                    <div class="work-card__inner">
+                        <div class="work-card__icon">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(255,255,255,0.15)"/><circle cx="28" cy="28" r="10" stroke="#fff" stroke-width="2.5" opacity="0.9"/><path d="M28 22v12M22 28h12" stroke="#fff" stroke-width="2.5" opacity="0.9"/></svg>
+                        </div>
+                        <div class="work-card__tags">
+                            <span>Fintech</span><span>B2B Payments</span>
+                        </div>
+                        <h3 class="work-card__title">Dopay</h3>
+                        <p class="work-card__desc">Digital payroll & merchant payment infrastructure for SMEs across Egypt and MENA.</p>
+                        <div class="work-card__stats">
+                            <div><strong>50K+</strong><span>Merchants</span></div>
+                            <div><strong>300%</strong><span>Growth</span></div>
+                        </div>
+                        <span class="work-card__arrow">→</span>
                     </div>
-                    <div class="work-meta">
-                        <span class="work-tag">50K+ Merchants</span>
-                        <span class="work-tag">300% Growth</span>
-                    </div>
-                    <span class="work-arrow">→</span>
                 </a>
-                <a href="https://www.mintoak.com" class="work-item anim-up" target="_blank" data-color="#00B388">
-                    <div class="work-index">03</div>
-                    <div class="work-info">
-                        <h3>Mintoak</h3>
-                        <p>End-to-end lending platform with instant credit assessment and dynamic pricing.</p>
+
+                <!-- Card 3 -->
+                <a href="https://www.mintoak.com" class="work-card anim-up" target="_blank" style="--card-bg: #00B388; --card-bg2: #008566;">
+                    <div class="work-card__inner">
+                        <div class="work-card__icon">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(255,255,255,0.15)"/><path d="M20 38l8-20 8 20M22 32h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/></svg>
+                        </div>
+                        <div class="work-card__tags">
+                            <span>SaaS</span><span>Lending</span>
+                        </div>
+                        <h3 class="work-card__title">Mintoak</h3>
+                        <p class="work-card__desc">End-to-end lending platform with instant credit assessment and dynamic pricing for 2M+ merchants.</p>
+                        <div class="work-card__stats">
+                            <div><strong>$50M+</strong><span>Disbursed</span></div>
+                            <div><strong>85%</strong><span>Approval</span></div>
+                        </div>
+                        <span class="work-card__arrow">→</span>
                     </div>
-                    <div class="work-meta">
-                        <span class="work-tag">$50M+ Disbursed</span>
-                        <span class="work-tag">85% Approval</span>
-                    </div>
-                    <span class="work-arrow">→</span>
                 </a>
-                <a href="https://www.novo.co" class="work-item anim-up" target="_blank" data-color="#FFC629">
-                    <div class="work-index">04</div>
-                    <div class="work-info">
-                        <h3>Novo</h3>
-                        <p>Core banking platform for SMBs — API design, account management, and compliance tooling.</p>
+
+                <!-- Card 4 — LARGE (spans 2 cols on desktop) -->
+                <a href="https://www.novo.co" class="work-card work-card--lg anim-up" target="_blank" style="--card-bg: #1a1a2e; --card-bg2: #0f0f1a;">
+                    <div class="work-card__inner">
+                        <div class="work-card__icon">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(255,255,255,0.15)"/><rect x="16" y="18" width="24" height="20" rx="3" stroke="#fff" stroke-width="2.5" opacity="0.9"/><path d="M16 26h24" stroke="#fff" stroke-width="2.5" opacity="0.9"/></svg>
+                        </div>
+                        <div class="work-card__tags">
+                            <span>Neobank</span><span>Banking Infra</span><span>SMBs</span>
+                        </div>
+                        <h3 class="work-card__title">Novo</h3>
+                        <p class="work-card__desc">Core banking platform for small businesses — API architecture, account management, compliance tooling, and payment rails powering 200K+ businesses with 99.9% uptime.</p>
+                        <div class="work-card__stats">
+                            <div><strong>100K+</strong><span>Users</span></div>
+                            <div><strong>50+</strong><span>APIs</span></div>
+                            <div><strong>99.9%</strong><span>Uptime</span></div>
+                        </div>
+                        <span class="work-card__arrow">→</span>
                     </div>
-                    <div class="work-meta">
-                        <span class="work-tag">100K+ Users</span>
-                        <span class="work-tag">50+ APIs</span>
-                        <span class="work-tag">99.9% Uptime</span>
-                    </div>
-                    <span class="work-arrow">→</span>
                 </a>
             </div>
         </div>
@@ -370,18 +396,26 @@
     </section>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-top">
                 <h2 class="footer-headline anim-up">Let's build<br><em>something great.</em></h2>
-                <a href="mailto:soni.kunal.dilip@gmail.com" class="footer-email anim-up">soni.kunal.dilip@gmail.com</a>
+                <div class="footer-links anim-up">
+                    <a href="https://www.linkedin.com/in/kunaldsoni/" target="_blank" class="footer-social-link footer-social-link--linkedin" aria-label="LinkedIn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="https://wa.me/971529397033" target="_blank" class="footer-social-link footer-social-link--whatsapp" aria-label="WhatsApp">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                    <a href="mailto:soni.kunal.dilip@gmail.com" class="footer-social-link footer-social-link--email" aria-label="Email">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                    </a>
+                    <a href="tel:+971529397033" class="footer-social-link footer-social-link--phone" aria-label="Phone">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    </a>
+                </div>
             </div>
             <div class="footer-bottom">
-                <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/kunaldsoni/" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/KunalDSoni" target="_blank">GitHub</a>
-                    <a href="tel:+971529397033">+971 529 397 033</a>
-                </div>
                 <p class="footer-copy">&copy; 2026 Kunal D Soni</p>
             </div>
         </div>
