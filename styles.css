@@ -758,6 +758,39 @@ body.cursor-hover .cursor-follower {
     color: var(--black);
 }
 
+.journey-company-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.2s;
+}
+
+.journey-company-link:hover {
+    color: var(--accent);
+}
+
+.journey-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.06);
+    font-size: 0.4em;
+    font-style: normal;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+.journey-company-link:hover .journey-arrow {
+    background: var(--black);
+    color: var(--white);
+    transform: rotate(-45deg);
+}
+
 /* ============================================
    SKILLS — Columns + Marquee
    ============================================ */
